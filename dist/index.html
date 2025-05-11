@@ -53,20 +53,18 @@
                 </div>
             </div>
         </div>
-
     </div>
-    <footer class="bg-blue-500 text-white mt-2 h-10 md:ml-[450px] ml-8 md:w-[480px] w-96">
-        <p class="text-center pt-2 md:text-2xl md:pl-0 pl-4 text-1xl font-bold">&copy; Designed/Developed by ELON'S TEAM, Blockfuse Labs, 2025</p>
-    </footer>
-
+    <footer class="vw-100 text-white mt-2 h-10 w-96 md:w-[480px]">
+        <p class="text-center pt-2 md:text-2xl text-1xl font-bold">&copy; Designed/Developed by ELON'S TEAM</p>
+    </footer>    
     <script>
         let button = document.getElementById("submitbtn")
 
         button.addEventListener("click", () => {
             let inputfield = document.getElementById("field").value;
             const apiKey = "84421f6d9e0aee74b3c62c7df0df4cf0"; 
-            fetch("https://api.openweathermap.org/data/2.5/weather?q=${inputfield}&appid=${apiKey}&units=metric").then((response) => response.json()).then((data) => {
-                document.getElementById("items").innerText = ${data.name}, ${data.sys.country}: ${data.main.temp}°C;
+            fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inputfield}&appid=${apiKey}&units=metric`).then((response) => response.json()).then((data) => {
+                document.getElementById("items").innerText = `${data.name}, ${data.sys.country}: ${data.main.temp}°C`;
             })
         })
     </script>
