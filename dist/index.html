@@ -22,8 +22,53 @@
                 </div>
                 <div class="text-3xl text-blue-900 font-semibold mt-6 pl-4" id="items"></div>
             </div>
+            <div class="bg-white rounded-md w-[330px] h-40 mt-5 pl-6 pt-4">
+                <h2 class="text-2xl text-blue-900 font-bold">5-Day Forecast</h2>
+                <div class="mt-4 flex gap-6">
+                    <div>
+                        <p class="text-blue-900 font-semibold">Tue</p>
+                        <img src="/img/sunandcloud.png" class="h-8 w-8" alt="">
+                        <p class="font-semibold text-blue-900">21°C</p>
+                    </div>
+                    <div>
+                        <p class="text-blue-900 font-semibold">Wed</p>
+                        <img src="/img/sunlight2.png" class="h-8 w-8" alt="">
+                        <p class="font-semibold text-blue-900">19°C</p>
+                    </div>
+                    <div>
+                        <p class="text-blue-900 font-semibold">Thu</p>
+                        <img src="/img/sunandcloud.png" class="h-8 w-8" alt="">
+                        <p class="font-semibold text-blue-900">18°C</p>
+                    </div>
+                    <div>
+                        <p class="text-blue-900 font-semibold">Fri</p>
+                        <img src="/img/sunlight2.png" class="h-8 w-8" alt="">
+                        <p class="font-semibold text-blue-900">20°C</p>
+                    </div>
+                    <div>
+                        <p class="text-blue-900 font-semibold">Sat</p>
+                        <img src="/img/sunandcloud.png" class="h-8 w-8" alt="">
+                        <p class="font-semibold text-blue-900">22°C</p>
+                    </div>
+                </div>
+            </div>
         </div>
 
     </div>
+    <footer class="bg-blue-500 text-white mt-2 h-10 md:ml-[450px] ml-8 md:w-[480px] w-96">
+        <p class="text-center pt-2 md:text-2xl md:pl-0 pl-4 text-1xl font-bold">&copy; Designed/Developed by ELON'S TEAM, Blockfuse Labs, 2025</p>
+    </footer>
+
+    <script>
+        let button = document.getElementById("submitbtn")
+
+        button.addEventListener("click", () => {
+            let inputfield = document.getElementById("field").value;
+            const apiKey = "84421f6d9e0aee74b3c62c7df0df4cf0"; 
+            fetch("https://api.openweathermap.org/data/2.5/weather?q=${inputfield}&appid=${apiKey}&units=metric").then((response) => response.json()).then((data) => {
+                document.getElementById("items").innerText = ${data.name}, ${data.sys.country}: ${data.main.temp}°C;
+            })
+        })
+    </script>
 </body>
 </html>
