@@ -64,7 +64,7 @@
             let inputfield = document.getElementById("field").value;
             const apiKey = "84421f6d9e0aee74b3c62c7df0df4cf0"; 
             fetch(`https://api.openweathermap.org/data/2.5/weather?q=${inputfield}&appid=${apiKey}&units=metric`).then((response) => response.json()).then((data) => {
-                document.getElementById("items").innerText = `${data.name}, ${data.sys.country}: ${data.main.temp}°C`;
+                document.getElementById("items").innerHTML = `<p>Name: ${data.name},</p> <p>Country: ${data.sys.country},</p> <p>Temp: ${data.main.temp}°C,</p>  <p>Wind: ${data.wind.speed} m/s,</p>`;
             })
         })
     </script>
